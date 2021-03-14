@@ -6,7 +6,7 @@ import { RecetasContext } from '../context/RecetasContext';
 export const Formulario = () => {
 
     const { categorias } = useContext(CategoriasContext);  
-    const { buscarRecetas } = useContext(RecetasContext );  
+    const { buscarRecetas, setConsultar } = useContext(RecetasContext);  
 
     const [busqueda, setBusqueda] = useState({
         ingrediente: '',
@@ -26,6 +26,7 @@ export const Formulario = () => {
             onSubmit={ e => {
                 e.preventDefault();
                 buscarRecetas(busqueda);
+                setConsultar(true);
             }}
         >
             <fieldset className="text-center">

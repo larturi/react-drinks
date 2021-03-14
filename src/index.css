@@ -19,3 +19,9 @@ h1 {
   text-align: center;
   font-size: 3rem;
 }
+.card-header {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
