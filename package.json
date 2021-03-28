@@ -1,5 +1,6 @@
 {
   "name": "drinks",
+  "homepage": "https://www.leandroarturi.com.ar/demo/drinks/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

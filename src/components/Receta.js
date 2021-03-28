@@ -44,12 +44,19 @@ export const Receta = ({ receta }) => {
         for (let i = 1; i < 16; i++) {
             if (recetainfo[`strIngredient${i}`]) {
                 ingredientes.push(
-                    <li>{recetainfo[`strIngredient${i}`]} {recetainfo[`strMeasure${i}`]}</li>
+                    <li key={i}>{recetainfo[`strIngredient${i}`]} {recetainfo[`strMeasure${i}`]}</li>
                 )
             }
         }
 
         return ingredientes;
+    };
+
+    const cerrarPopUp = () => {
+        setOpen(false);
+        setIdReceta(null);
+        setReceta({});
+        handleClose();
     };
 
     return (
@@ -92,16 +99,23 @@ export const Receta = ({ receta }) => {
                               </p>
 
                               <img 
-                                className="img-fluid my-4" 
+                                className="img-fluid my-3" 
                                 src={ recetainfo.strDrinkThumb } 
                                 alt="Imagen receta bebida"
                               />
 
+                              <button
+                                className="btn btn-primary w-100 mb-3"
+                                onClick={cerrarPopUp}
+                              >
+                                  Cerrar
+                              </button>
+
                               <h3>Ingredientes:</h3>
                               <ul>
-                                  <li>
+                                  
                                       { mostrarIngredientes(recetainfo) }
-                                  </li>
+                                  
                               </ul>
                         </div>
                     </Modal>
