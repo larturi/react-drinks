@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { CategoriasContext } from '../context/CategoriasContext';
 import { RecetasContext } from '../context/RecetasContext';
 
-export const Formulario = () => {
+export const Formulario = ({ setCargando }) => {
 
     const { categorias } = useContext(CategoriasContext);  
     const { buscarRecetas, setConsultar } = useContext(RecetasContext);  
@@ -25,8 +25,20 @@ export const Formulario = () => {
             className="col-12"
             onSubmit={ e => {
                 e.preventDefault();
+
+                if (busqueda.ingrediente.trim() === '' || busqueda.categoria.trim() === '') {
+                    return;
+                }
+
+                setCargando(true);
+
                 buscarRecetas(busqueda);
                 setConsultar(true);
+
+                setTimeout(() => {
+                    setCargando(false);
+                }, 500);
+
             }}
         >
             <fieldset className="text-center">
@@ -37,7 +49,7 @@ export const Formulario = () => {
                 <div className="col-md-4">
                     <input 
                         name="ingrediente"
-                        className="form-control"
+                        className="form-control mb-3"
                         type="text"
                         placeholder="Buscar por ingrediente"
                         onChange={obtenerDatosReceta}
@@ -46,7 +58,7 @@ export const Formulario = () => {
 
                 <div className="col-md-4">
                     <select
-                        className="form-control"
+                        className="form-control mb-3"
                         name="categoria"
                         onChange={obtenerDatosReceta}
                     >
