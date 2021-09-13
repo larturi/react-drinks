@@ -14,8 +14,17 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+In the project directory run:
 
-In the project directory, you can run:
+Install dependencies:
+
+`yarn install`
+
+Start development mode:
 
 `yarn start`
+
+You can see the app in [(http://localhost:3000](http://localhost:3000/demo/drinks).
+
+
+
