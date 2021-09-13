@@ -24,7 +24,7 @@ Start development mode:
 
 `yarn start`
 
-You can see the app in [(http://localhost:3000](http://localhost:3000/demo/drinks).
+You can see the app in [http://localhost:3000](http://localhost:3000/demo/drinks)
 
 
 
